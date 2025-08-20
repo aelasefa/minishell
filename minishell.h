@@ -180,6 +180,14 @@ void						handle_redirection(t_command *cmd, int prev_fd);
 // builtins
 void						ft_echo(char **args);
 void						ft_cd(t_gc *gc, char **input, t_env *env);
+int							builtin_cd(char **args, t_env *env);
+int							count_args(char **args);
+void						cd_too_many_args(void);
+char						*get_enviroment(t_env *env, char *key);
+char						*resolve_cd_path(char **args, t_env *env);
+char						*get_current_directory(void);
+int							change_directory(char *path, char *oldpwd);
+void						update_pwd_vars(t_env *env, char *oldpwd, char *newpwd);
 void						ft_pwd(char **input, t_env *env);
 void						ft_export(t_gc *gc, char **input, t_env **env);
 void						ft_unset(t_gc *gc, char **input, t_env **env);
